@@ -6,9 +6,17 @@
   xmlns:local="clr-namespace:VPet.House.Views"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pu="https://opensource.panuon.com/wpf-ui"
+  xmlns:vm="clr-namespace:VPet.House.ViewModels"
   Title="MainWindow"
   Width="800"
   Height="450"
+  d:DataContext="{d:DesignInstance {d:DesignData vm:MainWindowVM}}"
   mc:Ignorable="d">
-  <Grid />
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid />
+  </Grid>
 </pu:WindowX>

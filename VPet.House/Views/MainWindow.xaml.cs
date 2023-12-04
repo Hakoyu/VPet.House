@@ -1,4 +1,5 @@
-﻿using Panuon.WPF.UI;
+﻿using HKW.Models;
+using Panuon.WPF.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VPet.House.ViewModels;
+using VPet.ModMaker.Models;
 
 namespace VPet.House.Views;
 
@@ -20,8 +23,11 @@ namespace VPet.House.Views;
 /// </summary>
 public partial class MainWindow : WindowX
 {
+    public MainWindowVM ViewModel => (MainWindowVM)DataContext;
+
     public MainWindow()
     {
         InitializeComponent();
+        this.SetDataContext<MainWindowVM>();
     }
 }

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8F804A27-A57E-4799-801C-4DE96BA153BC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VPet.ModMaker</RootNamespace>
-    <AssemblyName>VPet.ModMaker</AssemblyName>
+    <RootNamespace>VPet.House</RootNamespace>
+    <AssemblyName>VPet.House</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -110,10 +110,24 @@
     <Compile Include="Converters\RatioMarginConverter.cs" />
     <Compile Include="Converters\MaxConverter.cs" />
     <Compile Include="Converters\MarginConverter.cs" />
+    <Compile Include="Models\EnumFlagsVM.cs" />
+    <Compile Include="Models\Expansions.cs" />
+    <Compile Include="Models\ObservableRange.cs" />
+    <Compile Include="Models\Utils.cs" />
     <Compile Include="Resources\NativeResources.cs" />
-    <Compile Include="SimpleObservable\ObservableCommandT.cs" />
+    <Compile Include="SimpleObservable\ObservableCommand\AsyncExecuteEventHandler.cs" />
+    <Compile Include="SimpleObservable\ObservableCommand\ExecuteEventHandler.cs" />
+    <Compile Include="SimpleObservable\ObservableCommand\NotifyReceivedEventHandler.cs" />
+    <Compile Include="SimpleObservable\ObservableCommand\ObservableCommand.cs" />
+    <Compile Include="SimpleObservable\ObservableCommand\ObservableCommandT.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\NotifySenderPropertyChangedHandler.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ObservableValue.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ObservableValueGroup.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ValueChangedEventArgs.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ValueChangedEventHandler.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ValueChangingEventArgs.cs" />
+    <Compile Include="SimpleObservable\ObservableValue\ValueChangingEventHandler.cs" />
     <Compile Include="Styles.cs" />
-    <Compile Include="SimpleObservable\ObservableValueGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,8 +141,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SimpleObservable\ObservableCommand.cs" />
-    <Compile Include="SimpleObservable\ObservableValue.cs" />
+    <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -181,9 +194,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
