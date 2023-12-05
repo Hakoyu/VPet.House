@@ -10,7 +10,14 @@ namespace VPet.House.Resources;
 internal class NativeResources
 {
     #region Resources
+    public const string Wall = ResourcePath + "Wall.png";
+    public const string Floor = ResourcePath + "Floor.png";
+    public const string Chair = ResourcePath + "Chair.png";
+    public const string Table = ResourcePath + "Table.png";
+    public const string Bed = ResourcePath + "Bed.png";
 
+    public const string OakPlanks = ResourcePath + "oak_planks.png";
+    public const string Stone = ResourcePath + "stone.png";
     #endregion
     /// <summary>
     /// 资源基路径
