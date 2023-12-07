@@ -2,30 +2,32 @@
 
 namespace HKW.Models;
 
-public class ObservablePoint<T>
+public class ObservablePoint<T> : ObservableClass<ObservablePoint<T>>
 {
-    public ObservableValue<T> X { get; } = new();
-    public ObservableValue<T> Y { get; } = new();
+    private T _x;
+    public T X
+    {
+        get => _x;
+        set => SetProperty(ref _x, value);
+    }
+
+    private T _y;
+    public T Y
+    {
+        get => _y;
+        set => SetProperty(ref _y, value);
+    }
 
     public ObservablePoint() { }
 
     public ObservablePoint(T x, T y)
     {
-        X.Value = x;
-        Y.Value = y;
-    }
-
-    public void SetValue(T x, T y)
-    {
-        X.Value = x;
-        Y.Value = y;
+        X = x;
+        Y = y;
     }
 
     public ObservablePoint<T> Copy()
     {
-        var result = new ObservablePoint<T>();
-        result.X.Value = X.Value;
-        result.Y.Value = Y.Value;
-        return result;
+        return new(X, Y);
     }
 }

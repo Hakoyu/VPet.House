@@ -1,4 +1,5 @@
 ﻿using HKW.HKWUtils.Observable;
+using System.ComponentModel;
 
 namespace HKW.Models;
 
@@ -6,49 +7,49 @@ namespace HKW.Models;
 /// 可观察的范围
 /// </summary>
 /// <typeparam name="T">类型</typeparam>
-public class ObservableRange<T>
+public class ObservableRange<T> : ObservableClass<ObservableRange<T>>
 {
-    /// <summary>
-    /// 最小值
-    /// </summary>
-    public ObservableValue<T> Min { get; } = new();
+    private T _min;
+    public T Min
+    {
+        get => _min;
+        set => SetProperty(ref _min, value);
+    }
 
-    /// <summary>
-    /// 最大值
-    /// </summary>
-    public ObservableValue<T> Max { get; } = new();
+    private T _max;
+    public T Max
+    {
+        get => _max;
+        set => SetProperty(ref _max, value);
+    }
 
-    /// <summary>
-    /// 信息
-    /// </summary>
-    public ObservableValue<string> Info { get; } = new();
+    private string _info;
+    public string Info
+    {
+        get => _info;
+        set => SetProperty(ref _info, value);
+    }
+
+    private readonly PropertyChangeListener _listener;
 
     public ObservableRange()
     {
-        Min.ValueChanged += ValueChanged;
-        Max.ValueChanged += ValueChanged;
+        _listener = new(this);
+        _listener.PropertyNames.Add(nameof(Min));
+        _listener.PropertyNames.Add(nameof(Max));
+        _listener.PropertyChanged += Listener_PropertyChanged;
+    }
+
+    private void Listener_PropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        Info = $"({Min} ~ {Max})";
     }
 
     public ObservableRange(T min, T max)
         : this()
     {
-        SetValue(min, max);
-    }
-
-    private void ValueChanged(ObservableValue<T> sender, ValueChangedEventArgs<T> e)
-    {
-        Info.Value = $"({Min.Value}, {Max.Value})";
-    }
-
-    /// <summary>
-    /// 设置值
-    /// </summary>
-    /// <param name="min">最小值</param>
-    /// <param name="max">最大值</param>
-    public void SetValue(T min, T max)
-    {
-        Min.Value = min;
-        Max.Value = max;
+        _min = min;
+        _max = max;
     }
 
     /// <summary>
@@ -57,6 +58,6 @@ public class ObservableRange<T>
     /// <returns></returns>
     public ObservableRange<T> Copy()
     {
-        return new(Min.Value, Max.Value);
+        return new(Min, Max);
     }
 }

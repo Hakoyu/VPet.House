@@ -6,24 +6,63 @@ namespace VPet.House.ViewModels;
 
 public class MainWindowVM { }
 
-public class House
+public class House : ObservableClass<House>
 {
-    public ObservableValue<BitmapImage> Background { get; } = new();
+    private BitmapImage _background;
+    public BitmapImage Background
+    {
+        get => _background;
+        set => SetProperty(ref _background, value);
+    }
 }
 
-public class Room
+public class Room : ObservableClass<Room>
 {
-    public ObservableValue<BitmapImage> BackgroundWall { get; } = new();
-    public ObservableValue<BitmapImage> LeftWall { get; } = new();
-    public ObservableValue<BitmapImage> RightWall { get; } = new();
-    public ObservableValue<BitmapImage> Roof { get; } = new();
-    public ObservableValue<BitmapImage> Floor { get; } = new();
+    private BitmapImage _backgroundWall;
+    public BitmapImage BackgroundWall
+    {
+        get => _backgroundWall;
+        set => SetProperty(ref _backgroundWall, value);
+    }
+
+    private BitmapImage _leftWall;
+    public BitmapImage LeftWall
+    {
+        get => _leftWall;
+        set => SetProperty(ref _leftWall, value);
+    }
+
+    private BitmapImage _rightWall;
+    public BitmapImage RightWall
+    {
+        get => _rightWall;
+        set => SetProperty(ref _rightWall, value);
+    }
+
+    private BitmapImage _roof;
+    public BitmapImage Roof
+    {
+        get => _roof;
+        set => SetProperty(ref _roof, value);
+    }
+
+    private BitmapImage _floor;
+    public BitmapImage Floor
+    {
+        get => _floor;
+        set => SetProperty(ref _floor, value);
+    }
     public ObservableCollection<Furniture> Furnitures { get; } = new();
 }
 
-public class Furniture
+public class Furniture : ObservableClass<Furniture>
 {
-    public ObservableValue<FurnitureType> FurnitureType { get; } = new();
+    private FurnitureType _type;
+    public FurnitureType Type
+    {
+        get => _type;
+        set => SetProperty(ref _type, value);
+    }
 }
 
 /// <summary>

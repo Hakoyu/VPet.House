@@ -2,38 +2,48 @@
 
 namespace HKW.Models;
 
-public class ObservableRect<T>
+public class ObservableRect<T> : ObservableClass<ObservableRect<T>>
 {
-    public ObservableValue<T> X { get; } = new();
-    public ObservableValue<T> Y { get; } = new();
-    public ObservableValue<T> Width { get; } = new();
-    public ObservableValue<T> Height { get; } = new();
+    private T _x;
+    public T X
+    {
+        get => _x;
+        set => SetProperty(ref _x, value);
+    }
+
+    private T _y;
+    public T Y
+    {
+        get => _y;
+        set => SetProperty(ref _y, value);
+    }
+
+    private T _width;
+    public T Width
+    {
+        get => _width;
+        set => SetProperty(ref _width, value);
+    }
+
+    private T _heigth;
+    public T Height
+    {
+        get => _heigth;
+        set => SetProperty(ref _heigth, value);
+    }
 
     public ObservableRect() { }
 
     public ObservableRect(T x, T y, T width, T hetght)
     {
-        X.Value = x;
-        Y.Value = y;
-        Width.Value = width;
-        Height.Value = hetght;
-    }
-
-    public void SetValue(T x, T y, T width, T hetght)
-    {
-        X.Value = x;
-        Y.Value = y;
-        Width.Value = width;
-        Height.Value = hetght;
+        X = x;
+        Y = y;
+        Width = width;
+        Height = hetght;
     }
 
     public ObservableRect<T> Copy()
     {
-        var result = new ObservableRect<T>();
-        result.X.Value = X.Value;
-        result.Y.Value = Y.Value;
-        result.Width.Value = Width.Value;
-        result.Height.Value = Height.Value;
-        return result;
+        return new(X, Y, Width, Height);
     }
 }

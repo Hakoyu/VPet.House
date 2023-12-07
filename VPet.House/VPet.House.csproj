@@ -119,27 +119,18 @@
     <Compile Include="Resources\NativeResources.cs" />
     <Compile Include="SimpleObservable\ObservableClass\INotifyPropertyChangedX.cs" />
     <Compile Include="SimpleObservable\ObservableClass\INotifyPropertyChangingX.cs" />
-    <Compile Include="SimpleObservable\ObservableClass\NotifyPropertyChangedResponderEventArgs.cs" />
     <Compile Include="SimpleObservable\ObservableClass\ObservableClass.cs" />
-    <Compile Include="SimpleObservable\ObservableClass\PropertyChangedResponder.cs" />
-    <Compile Include="SimpleObservable\ObservableClass\PropertyChangedResponderEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableClass\PropertyChangedXEventArgs.cs" />
     <Compile Include="SimpleObservable\ObservableClass\PropertyChangedXEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableClass\PropertyChangingXEventArgs.cs" />
     <Compile Include="SimpleObservable\ObservableClass\PropertyChangingXEventHandler.cs" />
-    <Compile Include="SimpleObservable\ObservableCommand\AsyncExecuteEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ExecuteAsyncEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ExecuteEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\NotifyReceivedEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ObservableCommand.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ObservableCommandT.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\NotifySenderPropertyChangedHandler.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ObservableValue.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ObservableValueGroup.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ValueChangedEventArgs.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ValueChangedEventHandler.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ValueChangingEventArgs.cs" />
-    <Compile Include="SimpleObservable\ObservableValue\ValueChangingEventHandler.cs" />
+    <Compile Include="SimpleObservable\PropertyChangeListener.cs" />
+    <Compile Include="SimpleObservable\PropertyChangeListenerT.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -154,6 +145,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Usings.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

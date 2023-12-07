@@ -13,13 +13,15 @@ namespace VPet.ModMaker.Models;
 /// 可观察的枚举标签模型
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class ObservableEnumFlags<T>
+public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
     where T : Enum
 {
-    /// <summary>
-    /// 枚举值
-    /// </summary>
-    public ObservableValue<T> EnumValue { get; } = new();
+    private T _EnumValue;
+    public T EnumValue
+    {
+        get => _EnumValue;
+        set => SetProperty(ref _EnumValue, value);
+    }
 
     /// <summary>
     /// 添加枚举命令
@@ -52,30 +54,24 @@ public class ObservableEnumFlags<T>
     public ObservableEnumFlags(T value)
         : this()
     {
-        EnumValue.Value = value;
+        EnumValue = value;
     }
 
-    private void AddCommand_ExecuteEvent(ICommand sender, CommandParameterEventArgs<T> e)
+    private void AddCommand_ExecuteEvent(T v)
     {
         if (UnderlyingType == typeof(int))
         {
-            EnumValue.Value = (T)
-                Enum.Parse(
-                    EnumType,
-                    (Convert.ToInt32(EnumValue.Value) | Convert.ToInt32(e)).ToString()
-                );
+            EnumValue = (T)
+                Enum.Parse(EnumType, (Convert.ToInt32(EnumValue) | Convert.ToInt32(v)).ToString());
         }
     }
 
-    private void RemoveCommand_ExecuteEvent(ICommand sender, CommandParameterEventArgs<T> e)
+    private void RemoveCommand_ExecuteEvent(T v)
     {
         if (UnderlyingType == typeof(int))
         {
-            EnumValue.Value = (T)
-                Enum.Parse(
-                    EnumType,
-                    (Convert.ToInt32(EnumValue.Value) & ~Convert.ToInt32(e)).ToString()
-                );
+            EnumValue = (T)
+                Enum.Parse(EnumType, (Convert.ToInt32(EnumValue) & ~Convert.ToInt32(v)).ToString());
         }
     }
 }
