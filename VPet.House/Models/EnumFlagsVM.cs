@@ -12,7 +12,7 @@ namespace VPet.ModMaker.Models;
 /// <summary>
 /// 可观察的枚举标签模型
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="T">枚举类型</typeparam>
 public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
     where T : Enum
 {
@@ -46,9 +46,9 @@ public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
     public ObservableEnumFlags()
     {
         if (Attribute.IsDefined(EnumType, typeof(FlagsAttribute)) is false)
-            throw new Exception("此枚举类型未使用特性 [Flags]");
-        AddCommand.ExecuteCommand += AddCommand_ExecuteEvent;
-        RemoveCommand.ExecuteCommand += RemoveCommand_ExecuteEvent;
+            throw new Exception($"此枚举类型未使用特性 [{nameof(FlagsAttribute)}]");
+        AddCommand.ExecuteCommand += AddCommand_Execute;
+        RemoveCommand.ExecuteCommand += RemoveCommand_Execute;
     }
 
     public ObservableEnumFlags(T value)
@@ -57,7 +57,7 @@ public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
         EnumValue = value;
     }
 
-    private void AddCommand_ExecuteEvent(T v)
+    private void AddCommand_Execute(T v)
     {
         if (UnderlyingType == typeof(int))
         {
@@ -66,7 +66,7 @@ public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
         }
     }
 
-    private void RemoveCommand_ExecuteEvent(T v)
+    private void RemoveCommand_Execute(T v)
     {
         if (UnderlyingType == typeof(int))
         {

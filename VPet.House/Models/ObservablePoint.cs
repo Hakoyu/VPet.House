@@ -25,9 +25,4 @@ public class ObservablePoint<T> : ObservableClass<ObservablePoint<T>>
         X = x;
         Y = y;
     }
-
-    public ObservablePoint<T> Copy()
-    {
-        return new(X, Y);
-    }
 }

@@ -129,9 +129,7 @@
     <Compile Include="SimpleObservable\ObservableCommand\NotifyReceivedEventHandler.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ObservableCommand.cs" />
     <Compile Include="SimpleObservable\ObservableCommand\ObservableCommandT.cs" />
-    <Compile Include="SimpleObservable\PropertyChangeListener.cs" />
-    <Compile Include="SimpleObservable\PropertyChangeListenerT.cs" />
-    <Compile Include="Styles.cs" />
+    <Compile Include="NativeStyles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -165,7 +163,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Properties\DesignTimeResources.xaml">
+    <Page Include="NativeStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
@@ -199,6 +197,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Bed.png" />
+    <EmbeddedResource Include="Resources\birch_planks.png" />
+    <EmbeddedResource Include="Resources\Chair.png" />
+    <EmbeddedResource Include="Resources\Floor.png" />
+    <EmbeddedResource Include="Resources\oak_planks.png" />
+    <EmbeddedResource Include="Resources\stone.png" />
+    <EmbeddedResource Include="Resources\Table.png" />
+    <EmbeddedResource Include="Resources\Wall.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,11 +10,11 @@
   Title="MainWindow"
   Width="800"
   Height="450"
-  d:DataContext="{d:DesignInstance {d:DesignData vm:MainWindowVM}}"
+  d:DataContext="{d:DesignInstance Type=vm:MainWindowVM}"
   mc:Ignorable="d">
   <Grid>
     <Grid x:Name="Grid_House">
-      <Image x:Name="Image_Background" />
+      <Image x:Name="Image_Background" Source="{Binding House.Background}" />
       <Grid x:Name="Grid_Room">
         <Grid
           x:Name="Grid_Structure"
@@ -28,7 +28,7 @@
             Margin="0,25,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Source="C:\Users\HKW\Desktop\Wall.png" />
+            Source="{Binding House.Room.LeftWall}" />
           <Image
             x:Name="Image_RightWall"
             Width="25"
@@ -36,7 +36,7 @@
             Margin="0,25,0,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Source="C:\Users\HKW\Desktop\Wall.png" />
+            Source="{Binding House.Room.RightWall}" />
           <Image
             x:Name="Image_BackgroundWall"
             Width="25"
@@ -49,13 +49,13 @@
             Width="500"
             Height="25"
             VerticalAlignment="Top"
-            Source="C:\Users\HKW\Desktop\Floor.png" />
+            Source="{Binding House.Room.Roof}" />
           <Image
             x:Name="Image_Floor"
             Width="500"
             Height="25"
             VerticalAlignment="Bottom"
-            Source="C:\Users\HKW\Desktop\Floor.png" />
+            Source="{Binding House.Room.Floor}" />
         </Grid>
         <Grid x:Name="Grid_Furniture" />
       </Grid>

@@ -7,9 +7,9 @@ using System.Windows;
 
 namespace VPet.House;
 
-public partial class Styles : ResourceDictionary
+public partial class NativeStyles : ResourceDictionary
 {
-    public Styles()
+    public NativeStyles()
     {
         InitializeComponent();
     }

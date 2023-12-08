@@ -41,9 +41,4 @@ public class ObservableRect<T> : ObservableClass<ObservableRect<T>>
         Width = width;
         Height = hetght;
     }
-
-    public ObservableRect<T> Copy()
-    {
-        return new(X, Y, Width, Height);
-    }
 }

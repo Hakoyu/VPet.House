@@ -44,10 +44,9 @@ public static class Extensions
     /// <param name="source">图像资源</param>
     public static void CloseStream(this ImageSource source)
     {
-        if (source is BitmapImage image)
-        {
-            image.StreamSource?.Close();
-        }
+        if (source is not BitmapImage image)
+            return;
+        image.StreamSource?.Close();
     }
 
     /// <summary>

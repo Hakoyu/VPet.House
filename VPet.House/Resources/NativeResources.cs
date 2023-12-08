@@ -22,7 +22,7 @@ internal class NativeResources
     /// <summary>
     /// 资源基路径
     /// </summary>
-    public const string ResourcePath = $"{nameof(VPet)}.{nameof(House)}.{nameof(Resources)}";
+    public const string ResourcePath = $"{nameof(VPet)}.{nameof(House)}.{nameof(Resources)}.";
 
     #region Native
     private static readonly Assembly _assembly = Assembly.GetExecutingAssembly();

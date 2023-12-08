@@ -23,41 +23,11 @@ public class ObservableRange<T> : ObservableClass<ObservableRange<T>>
         set => SetProperty(ref _max, value);
     }
 
-    private string _info;
-    public string Info
-    {
-        get => _info;
-        set => SetProperty(ref _info, value);
-    }
-
-    private readonly PropertyChangeListener _listener;
-
-    public ObservableRange()
-    {
-        _listener = new(this);
-        _listener.PropertyNames.Add(nameof(Min));
-        _listener.PropertyNames.Add(nameof(Max));
-        _listener.PropertyChanged += Listener_PropertyChanged;
-    }
-
-    private void Listener_PropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        Info = $"({Min} ~ {Max})";
-    }
+    public ObservableRange() { }
 
     public ObservableRange(T min, T max)
-        : this()
     {
         _min = min;
         _max = max;
-    }
-
-    /// <summary>
-    /// 复制
-    /// </summary>
-    /// <returns></returns>
-    public ObservableRange<T> Copy()
-    {
-        return new(Min, Max);
     }
 }
