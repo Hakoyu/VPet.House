@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using VPet_Simulator.Core;
 
-namespace HKW.Models;
+namespace HKW.HKWUtils;
 
 /// <summary>
 /// 拓展

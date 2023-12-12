@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HKW.HKWUtils.Observable;
+﻿namespace HKW.HKWUtils.Observable;
 
 /// <summary>
 /// 属性改变后事件参数

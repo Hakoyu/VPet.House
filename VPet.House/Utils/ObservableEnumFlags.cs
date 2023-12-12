@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace VPet.ModMaker.Models;
+namespace HKW.HKWUtils;
 
 /// <summary>
 /// 可观察的枚举标签模型
@@ -64,6 +64,8 @@ public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
             EnumValue = (T)
                 Enum.Parse(EnumType, (Convert.ToInt32(EnumValue) | Convert.ToInt32(v)).ToString());
         }
+        else
+            throw new NotImplementedException($"Value type: {UnderlyingType}");
     }
 
     private void RemoveCommand_Execute(T v)
@@ -73,5 +75,7 @@ public class ObservableEnumFlags<T> : ObservableClass<ObservableEnumFlags<T>>
             EnumValue = (T)
                 Enum.Parse(EnumType, (Convert.ToInt32(EnumValue) & ~Convert.ToInt32(v)).ToString());
         }
+        else
+            throw new NotImplementedException($"Value type: {UnderlyingType}");
     }
 }

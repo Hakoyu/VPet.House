@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace VPet.House.Resources;
 
@@ -10,6 +8,7 @@ namespace VPet.House.Resources;
 internal class NativeResources
 {
     #region Resources
+
     public const string Wall = ResourcePath + "Wall.png";
     public const string Floor = ResourcePath + "Floor.png";
     public const string Chair = ResourcePath + "Chair.png";
@@ -18,13 +17,16 @@ internal class NativeResources
 
     public const string OakPlanks = ResourcePath + "oak_planks.png";
     public const string Stone = ResourcePath + "stone.png";
-    #endregion
+
+    #endregion Resources
+
     /// <summary>
     /// 资源基路径
     /// </summary>
     public const string ResourcePath = $"{nameof(VPet)}.{nameof(House)}.{nameof(Resources)}.";
 
     #region Native
+
     private static readonly Assembly _assembly = Assembly.GetExecutingAssembly();
 
     /// <summary>
@@ -65,5 +67,6 @@ internal class NativeResources
         sr.BaseStream.CopyTo(sw.BaseStream);
         return true;
     }
-    #endregion
+
+    #endregion Native
 }

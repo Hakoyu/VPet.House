@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace HKW.Models;
+namespace HKW.HKWUtils;
 
 /// <summary>
 /// 工具

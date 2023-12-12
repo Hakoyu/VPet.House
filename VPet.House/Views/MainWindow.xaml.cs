@@ -1,4 +1,4 @@
-﻿using HKW.Models;
+﻿using HKW.HKWUtils;
 using Panuon.WPF.UI;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VPet.House.ViewModels;
-using VPet.ModMaker.Models;
 
 namespace VPet.House.Views;
 
