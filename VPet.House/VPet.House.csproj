@@ -145,7 +145,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Usings.cs" />
+    <Compile Include="Models\FurnitureModel.cs" />
+    <Compile Include="Models\FurnitureType.cs" />
+    <Compile Include="Models\HouseModel.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -208,8 +212,6 @@
     <EmbeddedResource Include="Resources\Table.png" />
     <EmbeddedResource Include="Resources\Wall.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
